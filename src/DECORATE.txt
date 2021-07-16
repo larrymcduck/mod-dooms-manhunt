@@ -1,0 +1,2 @@
+#include "SurvivorClass.txt"
+#include "replace.txt"

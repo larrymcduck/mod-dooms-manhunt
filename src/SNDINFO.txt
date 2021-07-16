@@ -1,0 +1,17 @@
+KnifeHitThing	dsknife
+KnifeHitWall	dsknife3	
+KnifeMiss		dsknife2
+PlayerLand		dsland
+
+$playersound	survivor	male	*death		dspldeth
+$playersound	survivor	male	*xdeath		dspdiehi
+$playersound	survivor	male	*gibbed		dsslop
+$playersound	survivor	male	*pain100	dsplpain
+$playersounddup	survivor	male	*pain75		*pain100
+$playersounddup	survivor	male	*pain50		*pain100
+$playersounddup	survivor	male	*pain25		*pain100
+$playersound	survivor	male	*grunt		dsoof
+$playeralias	survivor	male	*land		PlayerLand
+$playersound	survivor	male	*jump		dsjump
+$playersound	survivor	male	*fist		dspunch
+$playersound	survivor	male	*usefail	dsnoway

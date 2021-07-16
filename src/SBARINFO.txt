@@ -1,0 +1,18 @@
+height 0;
+monospacefonts true, "0";
+
+statusbar fullscreen, fullscreenoffsets
+{
+	gamemode deathmatch
+	{
+		drawnumber 2147483647, HUDFONT_DOOM, untranslated, frags, drawshadow, -3, 1;
+	}
+}
+
+statusbar normal, fullscreenoffsets
+{
+	gamemode deathmatch
+	{
+		drawnumber 2147483647, HUDFONT_DOOM, untranslated, frags, drawshadow, -3, 1;
+	}
+}

@@ -1,0 +1,125 @@
+#library "hunt"
+#include "zcommon.acs"
+
+function int hunter_time(void)
+{
+	int retVal = 63 - (PlayerCount() * 3);
+	if (retVal < 30)
+	{
+		return 30;
+	}
+	
+	return retVal;
+}
+
+script 1000 (void)
+{
+	// doom keys
+	if (GetCVarString("defaultiwad") == "doom" || GetCVarString("defaultiwad") == "doom2" ||
+		GetCVarString("defaultiwad") == "tnt" || GetCVarString("defaultiwad") == "plutonia")
+	{
+		GiveInventory("BlueCard", 1);
+		GiveInventory("RedCard", 1);
+		GiveInventory("YellowCard", 1);
+		GiveInventory("BlueSkull", 1);
+		GiveInventory("RedSkull", 1);
+		GiveInventory("YellowSkull", 1);
+	}
+
+	// heretic keys
+	if (GetCVarString("defaultiwad") == "heretic")
+	{
+	}
+
+	// hexen keys
+	if (GetCVarString("defaultiwad") == "hexen")
+	{
+	}
+}
+
+script 1001 (void)
+{
+    Thing_ChangeTID(0, PlayerNumber() + 1000);
+	ACS_ExecuteAlways(1000, 0);
+}
+
+script 1002 death
+{
+    Thing_ChangeTID(0, 0);
+}
+
+script 1003 enter
+{
+	ACS_ExecuteAlways(1001, 0);
+}
+
+script 1004 RETURN
+{
+	ACS_ExecuteAlways(1001, 0);
+}
+
+script 1005 (void)
+{
+	while (PlayerCount() == 0)
+	{
+		Delay(1);
+	}
+
+	Delay(5 * 35);
+	
+	int sector = 0;
+	while (sector < 1000)
+	{
+		Sector_SetColor(sector, 0, 0, 0, 0);
+		sector++;
+	}
+	
+	while (true)
+	{		
+		int index = 0;
+		while (index < PlayerCount())
+		{
+			int playerNum = index + 1000;
+
+			GiveActorInventory(playerNum, "Knife", 1);
+			GiveActorInventory(playerNum, "HunterSight", 1);
+			TakeActorInventory(playerNum, "FlashLight", 999);
+
+			int counter = hunter_time();
+			PrintBold(s:"\cfNew hunter in\n", d:counter);
+			
+			while (true)
+			{
+				Delay(35);
+				counter--;
+
+				if (counter >= hunter_time() - 5 )
+				{
+					PrintBold(s:"\cfNew hunter in\n", d:counter);
+				}
+				else
+				{
+					PrintBold(s:"\cf\n", d:counter);
+				}
+
+				if (counter == 0)
+				{
+					break;
+				}
+			}
+
+			GiveActorInventory(playerNum, "FlashLight", 1);
+			TakeActorInventory(playerNum, "Knife", 999);
+			TakeActorInventory(playerNum, "HunterSight", 999);
+			
+			index++;			
+		}
+		
+		Delay(1);
+	}
+}
+
+script 1006 OPEN
+{
+	ACS_ExecuteAlways(1005, 0);
+}

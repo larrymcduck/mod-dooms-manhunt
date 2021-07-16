@@ -1,0 +1,71 @@
+actor EmptyThing
+{
+	States
+	{
+		Spawn:
+			TNT1 A 1
+			Stop
+	}
+}
+
+// ------------------- Doom -------------------
+Actor ChainsawReplaced : EmptyThing replaces Chainsaw {}
+Actor PistolReplaced : EmptyThing replaces Pistol {}
+Actor ShotgunReplaced : EmptyThing replaces Shotgun {}
+Actor SuperShotgunReplaced : EmptyThing replaces SuperShotgun {}
+Actor ChaingunReplaced : EmptyThing replaces Chaingun {}
+Actor RocketLauncherReplaced : EmptyThing replaces RocketLauncher {}
+Actor PlasmaRifleReplaced : EmptyThing replaces PlasmaRifle {}
+Actor BFG9000Replaced : EmptyThing replaces BFG9000 {}
+Actor BackpackReplaced : EmptyThing replaces Backpack {}
+Actor CellReplaced : EmptyThing replaces Cell {}
+Actor CellPackReplaced : EmptyThing replaces CellPack {}
+Actor ClipReplaced : EmptyThing replaces Clip {}
+Actor ClipBoxReplaced : EmptyThing replaces ClipBox {}
+Actor RocketAmmoReplaced : EmptyThing replaces RocketAmmo {}
+Actor RocketBoxReplaced : EmptyThing replaces RocketBox {}
+Actor ShellReplaced : EmptyThing replaces Shell {}
+Actor ShellBoxReplaced : EmptyThing replaces ShellBox {}
+Actor AllmapReplaced : EmptyThing replaces Allmap {}
+Actor ArmorBonusReplaced : EmptyThing replaces ArmorBonus {}
+Actor BerserkReplaced : EmptyThing replaces Berserk {}
+Actor BlueArmorReplaced : EmptyThing replaces BlueArmor {}
+Actor BlurSphereReplaced : EmptyThing replaces BlurSphere {}
+Actor GreenArmorReplaced : EmptyThing replaces GreenArmor {}
+Actor HealthBonusReplaced : EmptyThing replaces HealthBonus {}
+Actor InfraredReplaced : EmptyThing replaces Infrared {}
+Actor InvulnerabilitySphereReplaced : EmptyThing replaces InvulnerabilitySphere {}
+Actor MedikitReplaced : EmptyThing replaces Medikit {}
+Actor MegasphereReplaced : EmptyThing replaces Megasphere {}
+Actor RadSuitReplaced : EmptyThing replaces RadSuit {}
+Actor SoulsphereReplaced : EmptyThing replaces Soulsphere {}
+Actor StimpackReplaced : EmptyThing replaces Stimpack {}
+// ---------------------------------------------------------
+
+// ------------------- Hexen -------------------
+Actor FWeaponPiece1Replaced : EmptyThing replaces FWeaponPiece1 {}
+Actor FWeaponPiece2Replaced : EmptyThing replaces FWeaponPiece2 {}
+Actor FWeaponPiece3Replaced : EmptyThing replaces FWeaponPiece3 {}
+Actor QuietusDropReplaced : EmptyThing replaces QuietusDrop {}
+Actor CWeaponPiece1Replaced : EmptyThing replaces CWeaponPiece1 {}
+Actor CWeaponPiece2Replaced : EmptyThing replaces CWeaponPiece2 {}
+Actor CWeaponPiece3Replaced : EmptyThing replaces CWeaponPiece3 {}
+Actor MWeaponPiece1Replaced : EmptyThing replaces MWeaponPiece1 {}
+Actor MWeaponPiece2Replaced : EmptyThing replaces MWeaponPiece2 {}
+Actor MWeaponPiece3Replaced : EmptyThing replaces MWeaponPiece3 {}
+Actor FWeapFistReplaced : EmptyThing replaces FWeapFist {}
+Actor FWeapAxeReplaced : EmptyThing replaces FWeapAxe {}
+Actor FWeapHammerReplaced : EmptyThing replaces FWeapHammer {}
+Actor FWeapQuietusReplaced : EmptyThing replaces FWeapQuietus {}
+Actor CWeapMaceReplaced : EmptyThing replaces CWeapMace {}
+Actor CWeapStaffReplaced : EmptyThing replaces CWeapStaff {}
+Actor CWeapFlameReplaced : EmptyThing replaces CWeapFlame {}
+Actor CWeapWraithvergeReplaced : EmptyThing replaces CWeapWraithverge {}
+Actor MWeapWandReplaced : EmptyThing replaces MWeapWand {}
+Actor MWeapFrostReplaced : EmptyThing replaces MWeapFrost {}
+Actor MWeapLightningReplaced : EmptyThing replaces MWeapLightning {}
+Actor MWeapBloodscourgeReplaced : EmptyThing replaces CWeapWraithverge {}
+actor Mana1Replaced : EmptyThing replaces Mana1 {}
+actor Mana2Replaced : EmptyThing replaces Mana2 {}
+actor Mana3Replaced : EmptyThing replaces Mana3 {}
+// ---------------------------------------------------------

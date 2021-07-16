@@ -1,0 +1,58 @@
+pointlight FLASHLIGHTLIGHT1
+{
+	color 1.0 1.0 1.0
+	size 16
+}
+
+pointlight FLASHLIGHTLIGHT2
+{
+	color 1.0 1.0 1.0
+	size 24
+}
+
+pointlight FLASHLIGHTLIGHT3
+{
+	color 1.0 1.0 1.0
+	size 32
+}
+
+pointlight FLASHLIGHTLIGHT4
+{
+	color 1.0 1.0 1.0
+	size 40
+}
+
+pointlight FLASHLIGHTLIGHT5
+{
+	color 1.0 1.0 1.0
+	size 44
+}
+
+pointlight FLASHLIGHTLIGHT6
+{
+	color 1.0 1.0 1.0
+	size 48
+}
+
+pointlight FLASHLIGHTLIGHT7
+{
+	color 1.0 1.0 1.0
+	size 52
+}
+pointlight FLASHLIGHTLIGHT8
+{
+	color 1.0 1.0 1.0
+	size 56
+}
+
+object FlashLightLight
+{
+	frame ZZFLA { light FLASHLIGHTLIGHT1 }
+	frame ZZFLB { light FLASHLIGHTLIGHT2 }
+	frame ZZFLC { light FLASHLIGHTLIGHT3 }
+	frame ZZFLD { light FLASHLIGHTLIGHT4 }
+	frame ZZFLE { light FLASHLIGHTLIGHT5 }
+	frame ZZFLF { light FLASHLIGHTLIGHT6 }
+	frame ZZFLG { light FLASHLIGHTLIGHT7 }
+	frame ZZFLH { light FLASHLIGHTLIGHT8 }
+}
