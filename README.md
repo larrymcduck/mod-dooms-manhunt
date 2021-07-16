@@ -1,1 +1,1 @@
-# mod-dooms-manhunt
+# Manhunt mod for Doom games
