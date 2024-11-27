@@ -25,11 +25,25 @@ script "on_enter" enter
 	// heretic keys
 	if (GetCVarString("defaultiwad") == "heretic")
 	{
+		GiveInventory("KeyBlue", 1);
+		GiveInventory("KeyGreen", 1);
+		GiveInventory("KeyYellow", 1);
 	}
 
 	// hexen keys
 	if (GetCVarString("defaultiwad") == "hexen")
 	{
+    GiveInventory("KeyAxe", 1);
+    GiveInventory("KeyCastle", 1);
+    GiveInventory("KeyCave", 1);
+    GiveInventory("KeyDungeon", 1);
+    GiveInventory("KeyEmerald", 1);
+    GiveInventory("KeyFire", 1);
+    GiveInventory("KeyHorn", 1);
+    GiveInventory("KeyRusted", 1);
+    GiveInventory("KeySilver", 1);
+    GiveInventory("KeySteel", 1);
+    GiveInventory("KeySwamp", 1);
 	}
 }
 

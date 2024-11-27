@@ -115,7 +115,7 @@ actor Knife : Weapon
 			loop
 		Fire:
 			KNFG B 2
-			KNFG C 2 A_CustomPunch ((200),0,0,"KnifePuff")
+			KNFG C 2 A_CustomPunch ((500),0,0,"KnifePuff")
 			KNFG DEFED 2
 			KNFG A 2 A_ReFire
 			goto Ready
