@@ -50,15 +50,17 @@ script "on_return" RETURN
 	ACS_NamedExecuteAlways("on_enter", 0);
 }
 
-script "on_open" OPEN
+script "player_check" (void)
 {
 	while (PlayerCount() == 0)
 	{
-		Delay(1);
+    HudMessageBold(s:""; HUDMSG_PLAIN, 1, CR_YELLOW, 0.0, 0.0, 0);
+		Delay(5);
 	}
+}
 
-	Delay(5 * 35);
-	
+script "on_open" OPEN
+{
 	int sector = 0;
 	while (sector < 1000)
 	{
@@ -67,40 +69,61 @@ script "on_open" OPEN
 	}
 	
 	while (true)
-	{		
+	{
+    ACS_NamedExecuteAlways("player_check", 0);
+
 		int index = 0;
 		while (index < PlayerCount())
 		{
 			int playerNum = index + 1000;
-      int hunter_time = GetCVar("hunter_time");			
+      int hunter_time = GetCVar("hunter_time");
       int counter = hunter_time;
 
-			TakeActorInventory(playerNum, "FlashLight", 999);
+      Delay(1);
+		  if (GetCVar("no_hunter") == 0)
+		  {
+  			TakeActorInventory(playerNum, "FlashLight", 999);
+		  }
 						
 			int site_give = hunter_time / 5;
-			while (site_give > 0)
+			while (site_give > 0 && GetCVar("no_hunter") == 0)
 			{
 			  site_give--;
 			  GiveActorInventory(playerNum, "HunterSight", 1);
 			  Delay(1);
 			}
 
-			GiveActorInventory(playerNum, "Knife", 1);
-
-			while (counter > 0)
-			{
-			  HudMessageBold(s:"New hunter in: ", d:counter; HUDMSG_PLAIN, 1, CR_YELLOW, 0.5, 0.8, 0);
-				Delay(35);
-				counter--;
-			}
+      if (GetCVar("no_hunter") == 0)
+      {
+        GiveActorInventory(playerNum, "Knife", 1);
+  
+        while (counter > 0 && PlayerCount() > 0 && GetCVar("no_hunter") == 0)
+        {
+          HudMessageBold(s:"New hunter in: ", d:counter; HUDMSG_PLAIN, 1, CR_YELLOW, 0.5, 0.8, 0);
+          Delay(35);
+          counter--;
+  
+          if (counter > GetCVar("hunter_time"))
+          {
+            counter = GetCVar("hunter_time");
+          }
+        }
+      }
+      else
+      {
+        HudMessageBold(s:""; HUDMSG_PLAIN, 1, CR_YELLOW, 0.0, 0.0, 0);
+      }
 
 			GiveActorInventory(playerNum, "FlashLight", 1);
 			TakeActorInventory(playerNum, "Knife", 999);
 			TakeActorInventory(playerNum, "HunterSight", 999);
 			
+      if (PlayerCount() == 0)
+      {
+        break;
+      }
+      
 			index++;			
 		}
-		
-		Delay(1);
 	}
 }

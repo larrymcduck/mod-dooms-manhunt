@@ -56,3 +56,15 @@ object FlashLightLight
 	frame ZZFLG { light FLASHLIGHTLIGHT7 }
 	frame ZZFLH { light FLASHLIGHTLIGHT8 }
 }
+
+object FlashLightPuff
+{
+	frame ZZFLA { light FLASHLIGHTLIGHT1 }
+	frame ZZFLB { light FLASHLIGHTLIGHT2 }
+	frame ZZFLC { light FLASHLIGHTLIGHT3 }
+	frame ZZFLD { light FLASHLIGHTLIGHT4 }
+	frame ZZFLE { light FLASHLIGHTLIGHT5 }
+	frame ZZFLF { light FLASHLIGHTLIGHT6 }
+	frame ZZFLG { light FLASHLIGHTLIGHT7 }
+	frame ZZFLH { light FLASHLIGHTLIGHT8 }
+}

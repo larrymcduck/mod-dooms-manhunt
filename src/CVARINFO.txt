@@ -1,1 +1,2 @@
 server int hunter_time = 30;
+server int no_hunter = 0;
