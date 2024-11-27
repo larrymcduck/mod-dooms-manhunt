@@ -1,7 +1,7 @@
 .idea/
 
 # acs
-**/*.o
+src/acs/*.o
 
 # maps
 **/*.bak

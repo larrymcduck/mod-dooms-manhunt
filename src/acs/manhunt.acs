@@ -10,41 +10,39 @@ script "on_enter" enter
 {
   Thing_ChangeTID(0, PlayerNumber() + 1000);
 
-	// doom keys
-	if (GetCVarString("defaultiwad") == "doom" || GetCVarString("defaultiwad") == "doom2" ||
-		GetCVarString("defaultiwad") == "tnt" || GetCVarString("defaultiwad") == "plutonia")
-	{
-		GiveInventory("BlueCard", 1);
-		GiveInventory("RedCard", 1);
-		GiveInventory("YellowCard", 1);
-		GiveInventory("BlueSkull", 1);
-		GiveInventory("RedSkull", 1);
-		GiveInventory("YellowSkull", 1);
-	}
-
-	// heretic keys
-	if (GetCVarString("defaultiwad") == "heretic")
-	{
-		GiveInventory("KeyBlue", 1);
-		GiveInventory("KeyGreen", 1);
-		GiveInventory("KeyYellow", 1);
-	}
-
-	// hexen keys
-	if (GetCVarString("defaultiwad") == "hexen")
-	{
-    GiveInventory("KeyAxe", 1);
-    GiveInventory("KeyCastle", 1);
-    GiveInventory("KeyCave", 1);
-    GiveInventory("KeyDungeon", 1);
-    GiveInventory("KeyEmerald", 1);
-    GiveInventory("KeyFire", 1);
-    GiveInventory("KeyHorn", 1);
-    GiveInventory("KeyRusted", 1);
-    GiveInventory("KeySilver", 1);
-    GiveInventory("KeySteel", 1);
-    GiveInventory("KeySwamp", 1);
-	}
+  str iwad = GetCVarString("defaultiwad");
+  switch (iwad)
+  {
+    case "doom":
+    case "doom2":
+    case "tnt":
+    case "plutonia":
+      GiveInventory("BlueCard", 1);
+      GiveInventory("RedCard", 1);
+      GiveInventory("YellowCard", 1);
+      GiveInventory("BlueSkull", 1);
+      GiveInventory("RedSkull", 1);
+      GiveInventory("YellowSkull", 1);
+      break;
+    case "heretric":
+      GiveInventory("KeyBlue", 1);
+      GiveInventory("KeyGreen", 1);
+      GiveInventory("KeyYellow", 1);
+      break;
+    case "hexen":
+      GiveInventory("KeyAxe", 1);
+      GiveInventory("KeyCastle", 1);
+      GiveInventory("KeyCave", 1);
+      GiveInventory("KeyDungeon", 1);
+      GiveInventory("KeyEmerald", 1);
+      GiveInventory("KeyFire", 1);
+      GiveInventory("KeyHorn", 1);
+      GiveInventory("KeyRusted", 1);
+      GiveInventory("KeySilver", 1);
+      GiveInventory("KeySteel", 1);
+      GiveInventory("KeySwamp", 1);
+      break;
+  }
 }
 
 script "on_return" RETURN
