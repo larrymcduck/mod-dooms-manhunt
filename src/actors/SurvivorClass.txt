@@ -74,11 +74,12 @@ Actor FlashLightLight
 Actor HunterSight : PowerupGiver
 {
 	Powerup.Type "Invulnerable"
-	Powerup.Duration -60
+	Powerup.Duration -5
 	Powerup.Color RedMap
 	DamageFactor "normal", 2
 	+INVENTORY.AUTOACTIVATE
 	+INVENTORY.ALWAYSPICKUP
+	+INVENTORY.ADDITIVETIME
 	Inventory.MaxAmount 0
 
 	States
@@ -96,7 +97,7 @@ actor Knife : Weapon
 	+WEAPON.CHEATNOTWEAPON
 	+WEAPON.NOALERT
 	+NOEXTREMEDEATH
-	Obituary "%o has been hunted by %k"
+	Obituary "%o has been slain by %k"
 
 	States
 	{

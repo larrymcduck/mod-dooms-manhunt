@@ -1,19 +1,15 @@
-#library "hunt"
+#library "manhunt"
 #include "zcommon.acs"
 
-function int hunter_time(void)
+script "on_death" death
 {
-	int retVal = 63 - (PlayerCount() * 3);
-	if (retVal < 30)
-	{
-		return 30;
-	}
-	
-	return retVal;
+    Thing_ChangeTID(0, 0);
 }
 
-script 1000 (void)
+script "on_enter" enter
 {
+  Thing_ChangeTID(0, PlayerNumber() + 1000);
+
 	// doom keys
 	if (GetCVarString("defaultiwad") == "doom" || GetCVarString("defaultiwad") == "doom2" ||
 		GetCVarString("defaultiwad") == "tnt" || GetCVarString("defaultiwad") == "plutonia")
@@ -37,28 +33,12 @@ script 1000 (void)
 	}
 }
 
-script 1001 (void)
+script "on_return" RETURN
 {
-    Thing_ChangeTID(0, PlayerNumber() + 1000);
-	ACS_ExecuteAlways(1000, 0);
+	ACS_NamedExecuteAlways("on_enter", 0);
 }
 
-script 1002 death
-{
-    Thing_ChangeTID(0, 0);
-}
-
-script 1003 enter
-{
-	ACS_ExecuteAlways(1001, 0);
-}
-
-script 1004 RETURN
-{
-	ACS_ExecuteAlways(1001, 0);
-}
-
-script 1005 (void)
+script "on_open" OPEN
 {
 	while (PlayerCount() == 0)
 	{
@@ -80,32 +60,26 @@ script 1005 (void)
 		while (index < PlayerCount())
 		{
 			int playerNum = index + 1000;
+      int hunter_time = GetCVar("hunter_time");			
+      int counter = hunter_time;
+
+			TakeActorInventory(playerNum, "FlashLight", 999);
+						
+			int site_give = hunter_time / 5;
+			while (site_give > 0)
+			{
+			  site_give--;
+			  GiveActorInventory(playerNum, "HunterSight", 1);
+			  Delay(1);
+			}
 
 			GiveActorInventory(playerNum, "Knife", 1);
-			GiveActorInventory(playerNum, "HunterSight", 1);
-			TakeActorInventory(playerNum, "FlashLight", 999);
 
-			int counter = hunter_time();
-			PrintBold(s:"\cfNew hunter in\n", d:counter);
-			
-			while (true)
+			while (counter > 0)
 			{
+			  HudMessageBold(s:"New hunter in: ", d:counter; HUDMSG_PLAIN, 1, CR_YELLOW, 0.5, 0.8, 0);
 				Delay(35);
 				counter--;
-
-				if (counter >= hunter_time() - 5 )
-				{
-					PrintBold(s:"\cfNew hunter in\n", d:counter);
-				}
-				else
-				{
-					PrintBold(s:"\cf\n", d:counter);
-				}
-
-				if (counter == 0)
-				{
-					break;
-				}
 			}
 
 			GiveActorInventory(playerNum, "FlashLight", 1);
@@ -117,9 +91,4 @@ script 1005 (void)
 		
 		Delay(1);
 	}
-}
-
-script 1006 OPEN
-{
-	ACS_ExecuteAlways(1005, 0);
 }

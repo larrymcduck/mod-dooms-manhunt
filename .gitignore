@@ -1,0 +1,9 @@
+.idea/
+
+# acs
+**/*.o
+
+# maps
+**/*.bak
+**/*.dbs
+**/*.wad.*

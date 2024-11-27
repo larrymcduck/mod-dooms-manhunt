@@ -1,2 +1,2 @@
-#include "SurvivorClass.txt"
-#include "replace.txt"
+#include "actors/SurvivorClass.txt"
+#include "actors/replace.txt"
